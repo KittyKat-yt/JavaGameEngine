@@ -2,7 +2,7 @@ package game_engine.math;
 
 import game_engine.scene.Transform;
 
-public class Maths {
+public abstract class Maths {
     public static final double DEG_TO_RAD = Math.PI / 180d;
 
     public static int boolToInt(boolean b) {

@@ -13,16 +13,16 @@ import game_engine.scene.Transform;
 import java.awt.event.KeyEvent;
 
 public class CameraScript extends Script {
-    private static final float MOVE_SPEED = 4f;
-    private static final float ROTATION_SPEED = 900f;
+    private static final float MOVE_SPEED = 6f;
+    private static final float ROTATION_SPEED = 50f;
 
     @Override
     public void update(GameObject obj) {
         Transform transform = obj.transform;
 
         Float2 mouse = Input.getMouseDelta();
-        transform.rot.x -= (float) (mouse.y * ROTATION_SPEED * deltaTime);
-        transform.rot.y += (float) (mouse.x * ROTATION_SPEED * deltaTime);
+        transform.rot.x -= mouse.y * ROTATION_SPEED;
+        transform.rot.y += mouse.x * ROTATION_SPEED;
         transform.rot.x = Maths.clamp(-90f, 90f, transform.rot.x);
         transform.updateRotation();
 

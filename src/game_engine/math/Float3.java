@@ -15,10 +15,44 @@ public class Float3 {
         this.y = y;
         this.z = z;
     }
-    public Float3(int color) {
-        this.x = ((color & 0xff0000) >> 16) / 255f;
-        this.y = ((color & 0x00ff00) >> 8) / 255f;
-        this.z = (color & 0x0000ff) / 255f;
+
+    public static Float3 fromRGB(int rgb) {
+        Float3 color = new Float3();
+        color.x = ((rgb & 0xff0000) >> 16) / 255f;
+        color.y = ((rgb & 0x00ff00) >> 8) / 255f;
+        color.z = (rgb & 0x0000ff) / 255f;
+        return color;
+    }
+    public static Float3 fromHSV(float hue, float saturation, float value) {
+        hue = (hue % 360 + 360) % 360;
+        saturation /= 100f;
+        value /= 100f;
+
+        float c = value * saturation;
+        float x = c * (1 - Math.abs((hue / 60f) % 2 - 1));
+        float m = value - c;
+
+        float rPrime, gPrime, bPrime;
+
+        if (hue < 60) {
+            rPrime = c; gPrime = x; bPrime = 0;
+        } else if (hue < 120) {
+            rPrime = x; gPrime = c; bPrime = 0;
+        } else if (hue < 180) {
+            rPrime = 0; gPrime = c; bPrime = x;
+        } else if (hue < 240) {
+            rPrime = 0; gPrime = x; bPrime = c;
+        } else if (hue < 300) {
+            rPrime = x; gPrime = 0; bPrime = c;
+        } else {
+            rPrime = c; gPrime = 0; bPrime = x;
+        }
+
+        Float3 color = new Float3();
+        color.x = rPrime + m;
+        color.y = gPrime + m;
+        color.z = bPrime + m;
+        return color;
     }
 
     public void set(float x, float y, float z) {

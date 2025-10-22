@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 public class RenderWindow extends JFrame implements KeyListener, MouseMotionListener {
     public static final float ASPECT_RATIO = (3f / 2f);
     private static final int WINDOW_HEIGHT = 900;
-    private static final int scalingFactor = 3;
+    private static final int scalingFactor = 2;
 
     private static Robot robot = null;
     private static Camera cam;

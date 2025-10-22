@@ -9,6 +9,7 @@ import game_engine.math.Maths;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public abstract class Scene {
     public static Float3 dirToSun = new Float3();

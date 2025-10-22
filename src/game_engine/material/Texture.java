@@ -29,7 +29,7 @@ public class Texture {
         uv = uv.modulo(1f);
         int x = Maths.clamp(0, width - 1, (int) (uv.x * width));
         int y = Maths.clamp(0, height - 1, (int) (uv.y * height));
-        return new Float3(texture.getRGB(x, y));
+        return Float3.fromRGB(texture.getRGB(x, y));
     }
 
     public void clear() {
