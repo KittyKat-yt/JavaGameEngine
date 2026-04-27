@@ -1,12 +1,14 @@
-import game_engine.material.Material;
-import game_engine.material.Texture;
-import game_engine.material.shader.LitShader;
-import game_engine.material.shader.Shader;
-import game_engine.math.Float2;
-import game_engine.render.RenderWindow;
-import game_engine.scene.GameObject;
-import game_engine.scene.Scene;
-import game_engine.script.*;
+import main.game_engine.material.Material;
+import main.game_engine.material.Texture;
+import main.game_engine.material.shader.LitShader;
+import main.game_engine.material.shader.Shader;
+import main.game_engine.math.Float2;
+import main.game_engine.render.RenderWindow;
+import main.game_engine.scene.GameObject;
+import main.game_engine.scene.Scene;
+import main.game_engine.script.CameraScript;
+import main.game_engine.script.RotationScript;
+import main.game_engine.script.Script;
 
 public class Main {
     public static void main(String[] args) {
